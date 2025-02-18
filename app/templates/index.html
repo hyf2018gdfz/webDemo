@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>主页</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-register-container {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .login-register-container a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-register-container a:hover {
+            background: #e0e0e0;
+            color: #1a1a1a;
+        }
+
+        .login-register-container a:active {
+            background: #e0e0e0;
+        }
+
+        .login-register-container .login {
+            margin-left: 0;
+        }
+    </style>
+
+<body>
+    <div class="login-register-container">
+        <a href="/login" class="login">登录</a>
+        <a href="/register" class="register">注册</a>
+    </div>
+    </div>
+
+    <script>
+        document.querySelector('.login').addEventListener('click', function () {
+            window.location.href = '/login.html';
+        });
+
+        document.querySelector('.register').addEventListener('click', function () {
+            window.location.href = '/register.html';
+        });
+    </script>
+</body>
+
+</html>
