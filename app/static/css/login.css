@@ -65,3 +65,9 @@ body {
     color: #666;
     text-decoration: none;
 }
+
+.warning-message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
