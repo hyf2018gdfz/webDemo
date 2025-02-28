@@ -27,6 +27,8 @@
 
 配置信息存放在 `config.py` 中，依赖的 Python 包在 `requirements.txt` 中列出，使用 `run.py` 启动网页。
 
+使用了 mysql 作为数据库。
+
 # 网页信息
 
 `/` 为主页，`/login` 为登录页面，`/register` 为注册页面，`/logout` 为登出，`/get_users` 为查看数据库。
