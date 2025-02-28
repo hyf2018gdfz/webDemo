@@ -2,7 +2,6 @@ from flask import Blueprint,render_template,request,redirect,flash,url_for
 import requests
 from app import models
 
-
 main = Blueprint('main', __name__)
 
 @main.route('/')
@@ -18,8 +17,9 @@ def loginUser():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        api_url = f'http://localhost:5000/api/login/{username}/{password}'
-        response = requests.get(api_url)
+        api_url = 'http://localhost:5000/api/login'
+        data = {'username': username, 'password': password}
+        response = requests.post(api_url,data=data)
         if response.status_code == 200 and response.json().get('message') == 'Login successful':
             flash('Login successful')
             return redirect(url_for('main.hello',name = username))
@@ -33,8 +33,9 @@ def registerUser():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        api_url = f'http://localhost:5000/api/register/{username}/{password}'
-        response = requests.get(api_url)
+        api_url = 'http://localhost:5000/api/register'
+        data = {'username': username, 'password': password}
+        response = requests.post(api_url,data=data)
         if response.status_code == 200 and response.json().get('message') == 'Register successful':
             flash('Register successful')
             return redirect(url_for('main.hello',name = username))
@@ -42,3 +43,12 @@ def registerUser():
             flash('Register failed')
             return redirect(url_for('main.registerUser'))
     return render_template('register.html')
+
+@main.route('/get_users')
+def get_users():
+    users = models.User.query.all()  # 获取所有用户
+    return '<br>'.join([f'{user.username} ({user.password})' for user in users])
+
+@main.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
