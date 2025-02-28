@@ -6,14 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录页面</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
-    <script>
-        setTimeout(function () {
-            var flashMessages = document.getElementById('flash_messages');
-            if (flashMessages) {
-                flashMessages.style.display = 'none';
-            }
-        }, 3000);
-    </script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 
 <body>
