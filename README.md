@@ -26,3 +26,7 @@
 `app` 中存放网页的主要文件。其中 `./app/__init__.py` 用于初始化 Flask 应用，`./app/routes` 用于定义路由，`./app/templates` 用于存放 HTML 模板，`./app/static` 用于存放静态文件，静态文件包括 CSS、JavaScript 和图片等。
 
 配置信息存放在 `config.py` 中，依赖的 Python 包在 `requirements.txt` 中列出，使用 `run.py` 启动网页。
+
+# 网页信息
+
+`/` 为主页，`/login` 为登录页面，`/register` 为注册页面，`/logout` 为登出，`/get_users` 为查看数据库。

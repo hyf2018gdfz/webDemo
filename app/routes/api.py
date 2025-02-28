@@ -14,15 +14,15 @@ def apiLogin():
         return jsonify({'message': 'Login failed'}), 401
     
 @api.route('/register/',methods = ['POST'])
-def apiRegister(username,password):
+def apiRegister():
     username = request.form.get('username')
     password = request.form.get('password')
     user = models.User.query.filter_by(username=username).first()
     if user:
         return jsonify({'message': 'Username already exists'}), 400
     else:
-        user = models.User(username=username,password=password)
-        user.set_password(password)
-        db.session.add(user)
+        usering = models.User(username=username,password=password)
+        usering.set_password(password)
+        db.session.add(usering)
         db.session.commit()
         return jsonify({'message': 'Register successful'}), 200

@@ -7,6 +7,11 @@ class User(db.Model):
     username = db.Column(db.String(50))
     password = db.Column(db.String(255))
 
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
+        self.set_password(password)
+
     def set_password(self, password):
         self.password = generate_password_hash(password)
         

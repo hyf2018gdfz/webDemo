@@ -1,6 +1,6 @@
-from flask import Flask
+from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
-from config import Config
+import config
 import os
 import sys
 
@@ -12,7 +12,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__,static_folder="static", template_folder="templates")
-    app.config.from_object(Config)
+    app.config.from_object(config.productionConfig)
 
     db.init_app(app)
 
@@ -21,4 +21,9 @@ def create_app():
 
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(api, url_prefix='/api')
+
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('404.html'), 404
+    
     return app

@@ -46,10 +46,17 @@
             margin-left: 0;
         }
     </style>
+    <script type="text/javascript">
+        function showAlert() {
+            alert('logout');
+        }
+    </script>
+</head>
 
 <body>
     {% if username %}
     <h1>{{ username }}的个人主页</h1>
+    <a href="/logout" onclick="showAlert()">登出</a>
     {% else %}
     <div class="login-register-container">
         <a href="/login" class="login">登录</a>

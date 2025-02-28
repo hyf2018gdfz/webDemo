@@ -7,3 +7,10 @@ class Config:
     SECRET_KEY = 'webDemoSecretKey'  # 用于加密会话数据
     DEBUG = True  # 开启调试模式
     TESTING = False  # 不开启测试模式
+
+class productionConfig(Config):
+    DEBUG = False
+
+class developmentConfig(Config):
+    DEBUG = True
+    TESTING = True
